@@ -39,4 +39,8 @@ public class TestController {
         return "testing";
     }
 
+    @RequestMapping("/test/login")
+    public String response(Model model){
+        return "login";
+    }
 }
