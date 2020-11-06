@@ -12,3 +12,6 @@ https://spring.io/guides/gs/handling-form-submission/
 
 ## validate form input
 https://spring.io/guides/gs/validating-form-input/
+
+## captcha
+https://www.baeldung.com/spring-security-registration-captcha
