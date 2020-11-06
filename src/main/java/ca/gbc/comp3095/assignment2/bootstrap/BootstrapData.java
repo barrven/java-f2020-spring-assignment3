@@ -41,11 +41,6 @@ public class BootstrapData implements CommandLineRunner {
 
         Role admin = new Role("Admin");
         Role client = new Role("Client");
-        Long adminId = admin.getId();
-        Long clientId = client.getId();
-
-        roleRepository.save(admin);
-        roleRepository.save(client);
 
         User kevin = new User("Kevin", "Ufkes", "kevinufkes@gmail.com", "JeebaDeebs", "12345");
         User satan = new User("Satan", "Joe", "satanjoe@gmail.com", "LuciferSam", "54321");
@@ -53,9 +48,14 @@ public class BootstrapData implements CommandLineRunner {
         kevin.getRoles().add(admin);
         kevin.getRoles().add(client);
         satan.getRoles().add(client);
+        client.getUsers().add(kevin);
+        client.getUsers().add(satan);
+
 
         userRepository.save(kevin);
         userRepository.save(satan);
+        roleRepository.save(admin);
+        roleRepository.save(client);
 
         //make a note in the console
         System.out.println("Started in bootstrap...");
