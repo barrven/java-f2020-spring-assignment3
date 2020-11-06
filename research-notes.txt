@@ -1,0 +1,14 @@
+## RESEARCH LINKS
+
+## Spring sessions
+https://docs.spring.io/spring-session/docs/current/reference/html5/guides/boot-redis.html
+
+## h2 data persistence
+https://www.baeldung.com/spring-boot-h2-database
+https://www.baeldung.com/persistence-with-spring-series
+
+## get data from form
+https://spring.io/guides/gs/handling-form-submission/
+
+## validate form input
+https://spring.io/guides/gs/validating-form-input/
