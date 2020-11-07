@@ -1,8 +1,6 @@
 package ca.gbc.comp3095.assignment2.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity

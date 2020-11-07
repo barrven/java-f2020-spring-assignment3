@@ -3,6 +3,9 @@
 ## Spring sessions
 https://docs.spring.io/spring-session/docs/current/reference/html5/guides/boot-redis.html
 
+## security
+https://myjavablog.com/2018/12/29/spring-boot-spring-security-h2-database/
+
 ## h2 data persistence
 https://www.baeldung.com/spring-boot-h2-database
 https://www.baeldung.com/persistence-with-spring-series
@@ -15,3 +18,14 @@ https://spring.io/guides/gs/validating-form-input/
 
 ## captcha
 https://www.baeldung.com/spring-security-registration-captcha
+
+
+
+
+## more
+
+https://www.youtube.com/watch?v=her_7pa0vrg&t=4641s
+
+https://www.youtube.com/watch?v=Hk70e7KR290
+
+https://github.com/thymeleaf/thymeleaf-extras-springsecurity
