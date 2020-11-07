@@ -3,12 +3,14 @@ package ca.gbc.comp3095.assignment2.domain;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 @Entity
 public class User {
 
     @Id
+    @Column(name = "id", updatable = false, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
@@ -29,6 +31,11 @@ public class User {
         this.email = email;
         this.username = username;
         this.password = password;
+    }
+
+    public void addRole(Role role) {
+        this.roles.add(role);
+        role.getUsers().add(this);
     }
 
     public Long getId() {
@@ -97,7 +104,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email, username, password, roles);
+        return Objects.hash(id);
     }
 
     @Override

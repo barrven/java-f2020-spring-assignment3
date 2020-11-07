@@ -10,37 +10,39 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class TestController {
+public class
 
-    private final GreetingRepository greetingRepository; //acting as service layer - connection to DB
+TestController {
 
-    public TestController(GreetingRepository greetingRepository) {
-        this.greetingRepository = greetingRepository;
-    }
+//    private final GreetingRepository greetingRepository; //acting as service layer - connection to DB
 
-    @GetMapping("/greeting")
-    public String greetingForm(Model model) {
-        model.addAttribute("greeting", new Greeting());
-        return "tests/greeting";
-    }
-
-    @PostMapping("/greeting")
-    public String greetingSubmit(@ModelAttribute Greeting greeting, Model model) {
-        model.addAttribute("greeting", greeting);
-
-        greetingRepository.save(greeting);
-        return "tests/result";
-    }
-
-    @RequestMapping("/view-greetings")
-    public String getGreetings(Model model){
-        model.addAttribute("items", greetingRepository.findAll());
-
-        return "testing";
-    }
-
-    @RequestMapping("/test/login")
-    public String response(Model model){
-        return "login";
-    }
+//    public TestController(GreetingRepository greetingRepository) {
+//        this.greetingRepository = greetingRepository;
+//    }
+//
+//    @GetMapping("/greeting")
+//    public String greetingForm(Model model) {
+//        model.addAttribute("greeting", new Greeting());
+//        return "tests/greeting";
+//    }
+//
+//    @PostMapping("/greeting")
+//    public String greetingSubmit(@ModelAttribute Greeting greeting, Model model) {
+//        model.addAttribute("greeting", greeting);
+//
+//        greetingRepository.save(greeting);
+//        return "tests/result";
+//    }
+//
+//    @RequestMapping("/view-greetings")
+//    public String getGreetings(Model model){
+//        model.addAttribute("items", greetingRepository.findAll());
+//
+//        return "testing";
+//    }
+//
+//    @RequestMapping("/test/login")
+//    public String response(Model model){
+//        return "login";
+//    }
 }

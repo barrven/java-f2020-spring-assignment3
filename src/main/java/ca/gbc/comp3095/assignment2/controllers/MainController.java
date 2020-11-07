@@ -15,22 +15,22 @@ public class MainController {
     public MainController(TestRepository testRepository) {
         this.testRepository = testRepository;
     }
-
-    @RequestMapping("/testing")
-    public String response(Model model){
-
-        model.addAttribute("items", testRepository.findAll());
-
-        return "testing";
-    }
-
-    @RequestMapping("/testing2")
-    public String response2(Model model){
-        String[] items = {"abc", "def", "hij"};
-        model.addAttribute("items", items);
-
-        return "testing";
-    }
+//
+//    @RequestMapping("/testing")
+//    public String response(Model model){
+//
+//        model.addAttribute("items", testRepository.findAll());
+//
+//        return "testing";
+//    }
+//
+//    @RequestMapping("/testing2")
+//    public String response2(Model model){
+//        String[] items = {"abc", "def", "hij"};
+//        model.addAttribute("items", items);
+//
+//        return "testing";
+//    }
 
 
 

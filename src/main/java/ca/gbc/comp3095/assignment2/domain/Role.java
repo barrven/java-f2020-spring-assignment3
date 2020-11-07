@@ -9,12 +9,13 @@ import java.util.Set;
 public class Role {
 
     @Id
+    @Column(name = "id", updatable = false, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
 
     @ManyToMany()
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name="user_id"))
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Set<User> users = new HashSet<>();
 
     public Role() {
@@ -27,6 +28,11 @@ public class Role {
     public Role(String title, Set<User> users) {
         this.title = title;
         this.users = users;
+    }
+
+    public void addUser(User user) {
+        this.users.add(user);
+        user.getRoles().add(this);
     }
 
     public Long getId() {
