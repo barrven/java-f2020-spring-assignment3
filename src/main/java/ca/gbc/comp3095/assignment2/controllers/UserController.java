@@ -41,10 +41,10 @@ public class UserController {
         this.roleRepository.save(role);
         return "login";
     }
-
-    @RequestMapping("/users")
-    public String allUsers(Model model) {
-        model.addAttribute("users", userRepository.findAll());
-        return "client/dashboard";
-    }
+//
+//    @RequestMapping("/users")
+//    public String allUsers(Model model) {
+//        model.addAttribute("users", userRepository.findAll());
+//        return "client/dashboard";
+//    }
 }

@@ -1,5 +1,6 @@
 package ca.gbc.comp3095.assignment2.security;
 
+import ca.gbc.comp3095.assignment2.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,10 +19,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
 
     @Autowired
-    public ApplicationSecurityConfig(PasswordEncoder passwordEncoder) {
+    public ApplicationSecurityConfig(PasswordEncoder passwordEncoder, UserRepository userRepository) {
         this.passwordEncoder = passwordEncoder;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -29,13 +32,16 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
+                .antMatchers("/", "index", "/registration", "/css/*", "/js/*").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
-                .defaultSuccessUrl("/users", true);
+                .defaultSuccessUrl("/dashboard", true);
+
+//                to temp disable database block
+                http.headers().frameOptions().disable();
     }
 
     @Override
@@ -44,15 +50,14 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         UserDetails adminUser = User.builder()
                 .username("admin@isp.net")
                 .password(passwordEncoder.encode("P@ssword1"))
-                .roles("ADMIN") //ROLE_STUDENT
+                .roles("Admin") //ROLE_STUDENT
                 .build();
 
         UserDetails barryUser = User.builder()
-                .username("barry")
-                .password(passwordEncoder.encode("test"))
-                .roles("ADMIN")
+                .username("client@isp.net")
+                .password(passwordEncoder.encode("P@ssword1"))
+                .roles("Client")
                 .build();
-
 
         return new InMemoryUserDetailsManager(
                 adminUser,
