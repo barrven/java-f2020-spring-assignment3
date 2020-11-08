@@ -39,7 +39,7 @@ public class UserController {
         user.addRole(role);
         this.userRepository.save(user);
         this.roleRepository.save(role);
-        return "client/dashboard";
+        return "login";
     }
 
     @RequestMapping("/users")
