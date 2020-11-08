@@ -16,6 +16,8 @@ public class MainController {
         return "login";
     }
 
+
+
     @RequestMapping("/registration")
     public String initRegistration() {
         return "client/registration";
