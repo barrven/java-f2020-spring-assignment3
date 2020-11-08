@@ -15,7 +15,7 @@
 <body>
 <div class="container">
     <form class="form-signin" method="post" action="/login">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading text-center">Please sign in</h2>
         <p>
             <label for="username" class="sr-only">Username</label>
             <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
@@ -30,7 +30,16 @@
             <span id="captchaError" class="alert alert-danger col-sm-4" style="display:none"></span>
         </div>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <div class="width300 ml-5">
+            <button class="btn btn-lg btn-primary m-2" type="submit">Login</button>
+            <a class="btn btn-lg btn-success m-2" href="/registration">Register</a>
+        </div>
+
+        <div class="width300 m-5">
+            <a href="/registration">Forgot your password?</a>
+        </div>
     </form>
+
+
 </div>
 </body></html>
