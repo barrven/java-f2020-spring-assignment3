@@ -10,10 +10,15 @@
 package ca.gbc.comp3095.assignment2.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+
 
 @Entity
 public class User {
@@ -22,10 +27,24 @@ public class User {
     @Column(name = "id", updatable = false, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotNull(message="First Name must not be empty!")
+    @Size(min=2, message="First Name must be longer than 1 character!")
     private String firstName;
+
+    @NotNull(message="Last Name must not be empty!")
+    @Size(min=2, message="Last Name must be longe that 1 character!")
     private String lastName;
+
+    @NotNull(message="Email must not be empty!")
+    @Email(message="Must enter valid email!")
     private String email;
+
+    @NotNull(message="Username must not be empty!")
+    @Email(message="Must enter valid email!")
     private String username;
+
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",message = "Password must contain at least: 1 uppercase, 1 lowercase, 1 number, 1 special character and must be at least 8 characters long!")
     private String password;
 
     @ManyToMany(mappedBy = "users")

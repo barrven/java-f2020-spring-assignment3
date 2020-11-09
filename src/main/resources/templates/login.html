@@ -25,19 +25,19 @@
             <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
         </p>
 
-        <div class="m-5">
+        <p class="m-5">
             <div class="g-recaptcha" th:attr="data-sitekey=${@captchaSettings.getSite()}"></div>
             <span id="captchaError" class="alert alert-danger col-sm-4" style="display:none"></span>
-        </div>
+        </p>
 
-        <div class="width300 ml-5">
+        <p class="width300 ml-5">
             <button class="btn btn-lg btn-primary m-2" type="submit">Login</button>
             <a class="btn btn-lg btn-success m-2" href="/registration">Register</a>
-        </div>
-
-        <div class="width300 m-5">
+        </p>
+        <br>
+        <p class="3 ml-5">
             <a href="/registration">Forgot your password?</a>
-        </div>
+        </p>
     </form>
 
 </div>

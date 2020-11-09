@@ -16,7 +16,10 @@ import ca.gbc.comp3095.assignment2.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -42,12 +45,16 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String processCreationForm(Role role, @ModelAttribute User user, ModelMap model) {
-        role = findRole((long)2);
-        role.addUser(user);
-        user.addRole(role);
-        this.userRepository.save(user);
-        this.roleRepository.save(role);
-        return "login";
+    public String processCreationForm(Role role, @ModelAttribute @Valid User user, BindingResult bindingResult, ModelMap model) {
+        if(bindingResult.hasErrors()) {
+            return "client/registration";
+        } else {
+            role = findRole((long) 2);
+            role.addUser(user);
+            user.addRole(role);
+            this.userRepository.save(user);
+            this.roleRepository.save(role);
+            return "login";
+        }
     }
 }

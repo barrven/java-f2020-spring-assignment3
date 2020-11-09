@@ -20,6 +20,14 @@
         <java.version>11</java.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>jboss</id>
+            <name>JBoss repository</name>
+            <url>http://repository.jboss.org/maven2</url>
+        </repository>
+    </repositories>
+
     <dependencies>
 
         <!--Security-->
@@ -28,6 +36,16 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+        <!--Validation-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.0.Final</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -72,7 +90,15 @@
             <artifactId>spring-data-commons</artifactId>
             <version>2.3.4.RELEASE</version>
         </dependency>
-<!--        <dependency>-->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+        </dependency>
+        <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
 <!--            <artifactId>spring-boot-starter-security</artifactId>-->
 <!--        </dependency>-->

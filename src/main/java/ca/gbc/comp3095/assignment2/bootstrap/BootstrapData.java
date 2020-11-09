@@ -6,7 +6,7 @@ Project: COMP3095 Channel5NewsTeam
         * Date: Sunday November 8, 2020
         * Description: Used to create database entries for pre-existing entities - Roles: Admin and Client
                                                                                   - User:  chuckNorris(admin) and barry(client)
-                        Used for database testing
+                       Used for database testing
 ********************************************************************************************/
 
 
