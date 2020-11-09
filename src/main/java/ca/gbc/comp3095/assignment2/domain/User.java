@@ -29,13 +29,13 @@ public class User {
     private Long id;
 
     @NotNull(message="First Name must not be empty!")
-    @Size(min=2, message="First Name must be longer than 1 character!")
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])$", message="Must be alphabetical")
+//    @Size(min=2, message="First Name must be longer than 1 character!")
+//    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])$", message="Must be alphabetical")
     private String firstName;
 
     @NotNull(message="Last Name must not be empty!")
-    @Size(min=2, message="Last Name must be longer that 1 character!")
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])$", message="Must be alphabetical")
+//    @Size(min=2, message="Last Name must be longer that 1 character!")
+//    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])$", message="Must be alphabetical")
     private String lastName;
 
     @NotNull(message="Email must not be empty!")
@@ -43,7 +43,6 @@ public class User {
     private String email;
 
     @NotNull(message="Username must not be empty!")
-    @Email(message="Must enter valid email!")
     private String username;
 
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",message = "Password must contain at least: 1 uppercase, 1 lowercase, 1 number, 1 special character and must be at least 8 characters long!")
