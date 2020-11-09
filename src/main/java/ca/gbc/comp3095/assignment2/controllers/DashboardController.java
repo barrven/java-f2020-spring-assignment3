@@ -1,4 +1,4 @@
-/*******************************************************************************************
+/* ******************************************************************************************
  Project: COMP3095 Channel5NewsTeam
  * Assignment: Assignment # 2
  * Author(s): Kevin Ufkes, Barrington Venables, Thiago Hissa
@@ -9,10 +9,8 @@
 
 package ca.gbc.comp3095.assignment2.controllers;
 
-import ca.gbc.comp3095.assignment2.domain.User;
 import ca.gbc.comp3095.assignment2.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
