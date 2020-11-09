@@ -13,10 +13,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
 
 
@@ -41,11 +39,13 @@ public class User {
     private String email;
 
     @NotNull(message="Username must not be empty!")
-    @Email(message="Must enter valid email!")
     private String username;
 
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",message = "Password must contain at least: 1 uppercase, 1 lowercase, 1 number, 1 special character and must be at least 8 characters long!")
     private String password;
+
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",message = "Password must contain at least: 1 uppercase, 1 lowercase, 1 number, 1 special character and must be at least 8 characters long!")
+    private String confirmPassword;
 
     @ManyToMany(mappedBy = "users")
     private Set<Role> roles = new HashSet<>();
