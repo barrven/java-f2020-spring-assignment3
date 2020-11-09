@@ -1,10 +1,11 @@
-/*******************************************************************************************
+/* ******************************************************************************************
  Project: < COMP3095 Channel5NewsTeam>
  * Assignment: < Assignment # 2 >
  * Author(s): < Kevin Ufkes, Barrington Venables, Thiago Hissa>
  * Student Number: < 101197364, 101189284, 101176085 >
  * Date: Sunday November 8, 2020
- * Description: <describe the java file and its purpose briefly only – 1 or 2 lines>
+ * Description: Used to define various options for security currently also adding authorized
+ * users because we haven't had time to properly integrate with the database yet
  ********************************************************************************************/
 
 package ca.gbc.comp3095.assignment2.security;
@@ -21,6 +22,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -47,7 +49,15 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
-                .defaultSuccessUrl("/dashboard", true);
+                .defaultSuccessUrl("/dashboard", true)
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
+                .clearAuthentication(true)
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/login");
 
 //                to temp disable database block
                 http.headers().frameOptions().disable();
@@ -68,9 +78,16 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .roles("Client")
                 .build();
 
+        UserDetails testUser = User.builder()
+                .username("test")
+                .password(passwordEncoder.encode("test"))
+                .roles("Admin")
+                .build();
+
         return new InMemoryUserDetailsManager(
                 adminUser,
-                barryUser
+                barryUser,
+                testUser
         );
     }
 }

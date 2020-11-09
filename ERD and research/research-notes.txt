@@ -19,9 +19,6 @@ https://spring.io/guides/gs/validating-form-input/
 ## captcha
 https://www.baeldung.com/spring-security-registration-captcha
 
-
-
-
 ## more
 
 https://www.youtube.com/watch?v=her_7pa0vrg&t=4641s
