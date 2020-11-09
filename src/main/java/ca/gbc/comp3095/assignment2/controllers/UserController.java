@@ -1,3 +1,12 @@
+/*******************************************************************************************
+ Project: COMP3095 Channel5NewsTeam
+ * Assignment:  Assignment # 2
+ * Author(s): Kevin Ufkes, Barrington Venables, Thiago Hissa
+ * Student Number: 101197364, 101189284, 101176085
+ * Date: Sunday November 8, 2020
+ * Description: Creates new Users from registration.html. Saves new users to database and links new users to Role: "Client".
+ ********************************************************************************************/
+
 package ca.gbc.comp3095.assignment2.controllers;
 
 import ca.gbc.comp3095.assignment2.domain.Role;

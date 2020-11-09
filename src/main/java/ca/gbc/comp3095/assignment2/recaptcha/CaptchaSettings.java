@@ -1,3 +1,12 @@
+/*******************************************************************************************
+ Project: COMP3095 Channel5NewsTeam
+ * Assignment: Assignment # 2
+ * Author(s): Kevin Ufkes, Barrington Venables, Thiago Hissa
+ * Student Number: 101197364, 101189284, 101176085
+ * Date: Sunday November 8, 2020
+ * Description: Defines Captcha settings for ReCaptcha functionality on login page
+ ********************************************************************************************/
+
 package ca.gbc.comp3095.assignment2.recaptcha;
 
 

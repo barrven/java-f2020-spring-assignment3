@@ -1,3 +1,15 @@
+/*******************************************************************************************
+Project: COMP3095 Channel5NewsTeam
+        * Assignment: Assignment # 2
+        * Author(s): Kevin Ufkes, Barrington Venables, Thiago Hissa
+        * Student Number: 101197364, 101189284, 101176085
+        * Date: Sunday November 8, 2020
+        * Description: Used to create database entries for pre-existing entities - Roles: Admin and Client
+                                                                                  - User:  chuckNorris(admin) and barry(client)
+                        Used for database testing
+********************************************************************************************/
+
+
 package ca.gbc.comp3095.assignment2.bootstrap;
 
 import ca.gbc.comp3095.assignment2.domain.Role;
