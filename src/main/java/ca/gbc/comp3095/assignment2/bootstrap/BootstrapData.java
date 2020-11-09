@@ -44,8 +44,17 @@ public class BootstrapData implements CommandLineRunner {
         roleRepository.save(admin);
         roleRepository.save(client);
 
-        User chuckNorris = new User("Chuck", "Norris", "admin@isp.net", "admin@isp.net", "P@ssword1");
-        User barry = new User("barry","trombone", "client@isp.net", "client@isp.net", "P@ssword1");
+        User chuckNorris = new User(
+                "Chuck", "Norris",
+                "123 Fake St. Fakeville ON","admin@isp.net",
+                "admin@isp.net", "P@ssword1"
+        );
+
+        User barry = new User(
+                "barry","trombone",
+                "1245 Yonge St. Toronto ON","client@isp.net",
+                "client@isp.net", "P@ssword1"
+        );
         userRepository.save(chuckNorris);
         userRepository.save(barry);
 

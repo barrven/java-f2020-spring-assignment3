@@ -24,6 +24,7 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
+    private String address;
     private String email;
     private String username;
     private String password;
@@ -34,7 +35,7 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, String username, String password) {
+    public User(String firstName, String lastName, String address, String email, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -103,6 +104,14 @@ public class User {
         this.roles = roles;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -122,6 +131,7 @@ public class User {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
