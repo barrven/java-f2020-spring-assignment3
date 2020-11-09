@@ -28,7 +28,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="fn">First Name<span class="text-danger">*</span></label>
-                <input type="fn" class="form-control" id="fn" placeholder="First Name" th:field="*{firstName}" required>
+                <input type="text" class="form-control" id="fn" placeholder="First Name" th:field="*{firstName}" required>
                 <p class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
             </div>
 

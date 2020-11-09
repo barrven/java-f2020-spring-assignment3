@@ -29,13 +29,11 @@ public class User {
     private Long id;
 
     @NotNull(message="First Name must not be empty!")
-    @Size(min=2, message="First Name must be longer than 1 character!")
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])$", message="Must be alphabetical")
+    @Pattern(regexp = "^[A-Za-z]+$", message="Must be alphabetical")
     private String firstName;
 
     @NotNull(message="Last Name must not be empty!")
-    @Size(min=2, message="Last Name must be longer that 1 character!")
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])$", message="Must be alphabetical")
+    @Pattern(regexp = "^[A-Za-z]+$", message="Must be alphabetical")
     private String lastName;
 
     @NotNull(message="Email must not be empty!")
