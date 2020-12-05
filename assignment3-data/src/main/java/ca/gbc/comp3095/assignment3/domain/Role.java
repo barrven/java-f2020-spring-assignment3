@@ -30,7 +30,7 @@ public class Role {
     public Role() {
     }
 
-    public Role(String title) {
+    public Role( String title) {
         this.title = title;
     }
 

@@ -13,6 +13,8 @@ import ca.gbc.comp3095.assignment3.domain.Role;
 import ca.gbc.comp3095.assignment3.domain.User;
 import ca.gbc.comp3095.assignment3.repositories.RoleRepository;
 import ca.gbc.comp3095.assignment3.repositories.UserRepository;
+import ca.gbc.comp3095.assignment3.services.RoleService;
+import ca.gbc.comp3095.assignment3.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -24,16 +26,24 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
 
-    private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
+//    private final UserRepository userRepository;
+//    private final RoleRepository roleRepository;
+//
+//    public UserController(UserRepository userRepository, RoleRepository roleRepository) {
+//        this.userRepository = userRepository;
+//        this.roleRepository = roleRepository;
+//    }
 
-    public UserController(UserRepository userRepository, RoleRepository roleRepository) {
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
+    private final UserService userService;
+    private final RoleService roleService;
+
+    public UserController(UserService userService, RoleService roleService) {
+        this.roleService = roleService;
+        this.userService = userService;
     }
 
     public Role findRole(Long id) {
-        return this.roleRepository.findById(id).get();
+        return this.roleService.findById(id);
     }
 
     @GetMapping("/registration")
@@ -51,8 +61,8 @@ public class UserController {
             role = findRole((long) 2);
             role.addUser(user);
             user.addRole(role);
-            this.userRepository.save(user);
-            this.roleRepository.save(role);
+            this.userService.save(user);
+            this.roleService.save(role);
             return "login";
         }
     }

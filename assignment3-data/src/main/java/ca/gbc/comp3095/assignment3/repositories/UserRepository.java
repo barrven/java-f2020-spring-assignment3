@@ -13,4 +13,5 @@ import ca.gbc.comp3095.assignment3.domain.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Long> {
+    User findByUsername(String Username);
 }

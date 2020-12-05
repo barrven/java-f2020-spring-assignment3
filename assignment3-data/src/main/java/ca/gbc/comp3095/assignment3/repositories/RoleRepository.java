@@ -10,6 +10,7 @@
 package ca.gbc.comp3095.assignment3.repositories;
 
 import ca.gbc.comp3095.assignment3.domain.Role;
+import ca.gbc.comp3095.assignment3.domain.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface RoleRepository extends CrudRepository<Role, Long> {
