@@ -93,6 +93,14 @@ public class Address {
         return isDefaultShipping;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public void setDefaultShipping(boolean defaultShipping) {
         isDefaultShipping = defaultShipping;
     }

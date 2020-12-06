@@ -12,16 +12,10 @@ Project: COMP3095 Channel5NewsTeam
 
 package ca.gbc.comp3095.assignment3.bootstrap;
 
-import ca.gbc.comp3095.assignment3.domain.CreditCard;
-import ca.gbc.comp3095.assignment3.domain.Role;
-import ca.gbc.comp3095.assignment3.domain.SupportMessage;
-import ca.gbc.comp3095.assignment3.domain.User;
+import ca.gbc.comp3095.assignment3.domain.*;
 import ca.gbc.comp3095.assignment3.repositories.RoleRepository;
 import ca.gbc.comp3095.assignment3.repositories.UserRepository;
-import ca.gbc.comp3095.assignment3.services.CreditCardService;
-import ca.gbc.comp3095.assignment3.services.RoleService;
-import ca.gbc.comp3095.assignment3.services.SupportMessageService;
-import ca.gbc.comp3095.assignment3.services.UserService;
+import ca.gbc.comp3095.assignment3.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -36,15 +30,22 @@ public class BootstrapData implements CommandLineRunner {
     private final RoleService roleService;
     private final CreditCardService creditCardService;
     private final SupportMessageService supportMessageService;
+    private final AddressService addressService;
 
 
     //instantiate a new bootstrap data object with these specific data members assigned
     //constructor injection
-    public BootstrapData(UserService userService, RoleService roleService, CreditCardService creditCardService, SupportMessageService supportMessageService) {
+    public BootstrapData(
+            UserService userService,
+            RoleService roleService,
+            CreditCardService creditCardService,
+            SupportMessageService supportMessageService,
+            AddressService addressService) {
         this.userService = userService;
         this.roleService = roleService;
         this.creditCardService = creditCardService;
         this.supportMessageService = supportMessageService;
+        this.addressService = addressService;
     }
 
     //default implementation of run method that is required by the interface
@@ -71,6 +72,30 @@ public class BootstrapData implements CommandLineRunner {
         sMessage1.setSubject("Springboot being fun");
         sMessage1.setMessage("Hello, I don't need support I just want to say how much fun I think SpringBoot is!!");
         supportMessageService.save(sMessage1);
+
+        Address address1 = new Address();
+        address1.setAddress("123 Real Blvd.");
+        address1.setCity("Toronto");
+        address1.setProvince("Ontario");
+        address1.setCountry("Canada");
+        address1.setDefaultBilling(true);
+        address1.setDefaultShipping(false);
+        address1.setBilling(true);
+        address1.setShipping(false);
+        address1.setUser(barry);
+        addressService.save(address1);
+
+        Address address2 = new Address();
+        address2.setAddress("123 Fake Blvd.");
+        address2.setCity("Peterborough");
+        address2.setProvince("Ontario");
+        address2.setCountry("Canada");
+        address2.setDefaultBilling(false);
+        address2.setDefaultShipping(true);
+        address2.setBilling(false);
+        address2.setShipping(true);
+        address2.setUser(barry);
+        addressService.save(address2);
 
         admin.getUsers().add(chuckNorris);
         client.getUsers().add(barry);
