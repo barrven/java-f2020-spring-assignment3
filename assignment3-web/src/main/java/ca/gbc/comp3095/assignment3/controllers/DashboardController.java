@@ -32,7 +32,7 @@ public class DashboardController {
 //        return "logout";
 //    }
 
-    @RequestMapping(value = {"/tab1","/tab2","/tab3","/tab4"})
+    @RequestMapping(value = {"/tab2","/tab3","/tab4"})
     public String responseUnderCTabs(){
         return "construction";
     }

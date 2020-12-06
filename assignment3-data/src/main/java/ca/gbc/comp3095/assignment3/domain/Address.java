@@ -29,12 +29,6 @@ public class Address {
     @Column(name="is_default_billing")
     private boolean isDefaultBilling;
 
-    @Column(name="is_shipping")
-    private boolean isShipping;
-
-    @Column(name="is_billing")
-    private boolean isBilling;
-
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
@@ -113,19 +107,4 @@ public class Address {
         isDefaultBilling = defaultBilling;
     }
 
-    public boolean isShipping() {
-        return isShipping;
-    }
-
-    public void setShipping(boolean shipping) {
-        isShipping = shipping;
-    }
-
-    public boolean isBilling() {
-        return isBilling;
-    }
-
-    public void setBilling(boolean billing) {
-        isBilling = billing;
-    }
 }
