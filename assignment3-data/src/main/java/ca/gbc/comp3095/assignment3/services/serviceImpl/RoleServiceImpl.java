@@ -21,7 +21,7 @@ public class RoleServiceImpl implements RoleService {
     public Set<Role> findAll() {
         Set<Role> roles = new HashSet<>();
         roleRepository.findAll().forEach(roles::add);
-        return roles ;
+        return roles;
     }
 
     @Override

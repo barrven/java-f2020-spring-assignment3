@@ -17,14 +17,28 @@
 <nav th:replace="fragments/nav.html :: nav" class="navbar navbar-expand-lg navbar-light bg-light"></nav>
 
 <!-- Content -->
-<div class="container mt-5 mb-5">
+<div class="container m-3">
+    <h1 class="text-center">Dashboard</h1>
     <div class="row">
-        <div class="col-sm" style="background-color: black">
-            Column 1
+        <div class="col border border-primary">
+            <h2>Recent Activity</h2>
+
+
         </div>
-        <div class="col-sm">
-            <div class="row" style="background-color: aquamarine">C2 R1</div>
-            <div class="row mt-5" style="background-color: Red">C2 R2</div>
+        <div class="col">
+            <div class="border border-primary">
+                <h2>Current Profile</h2>
+                <hr>
+                <div><strong>First Name: </strong><span th:text="${user.getFirstName()}"></span></div>
+                <div><strong>Last Name: </strong><span th:text="${user.getLastName()}"></span></div>
+                <div><strong>Email: </strong><span th:text="${user.getEmail()}"></span></div>
+            </div>
+
+            <div class="border border-primary">
+                <h2>Registered Users List</h2>
+
+            </div>
+
         </div>
     </div>
 </div>

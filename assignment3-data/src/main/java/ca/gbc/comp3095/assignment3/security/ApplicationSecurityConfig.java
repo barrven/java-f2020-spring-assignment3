@@ -49,7 +49,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
-                .defaultSuccessUrl("/dashboard", true)
+                .defaultSuccessUrl("/dashboard/client", true)
                 .and()
                 .logout()
                 .logoutUrl("/logout")
