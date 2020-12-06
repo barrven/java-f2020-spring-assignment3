@@ -19,4 +19,19 @@ public class AdminUserController {
         this.userService = userService;
     }
 
+    @RequestMapping("/myprofile/admin")
+    public String getAdminProfile(Model model){
+        return "admin/construction";
+    }
+
+    @RequestMapping("/admin/users-listing")
+    public String getAdminUsersListing(Model model){
+        return "admin/construction";
+    }
+
+    @RequestMapping("/admin/users")
+    public String getAdminUsers(Model model){
+        return "admin/construction";
+    }
+
 }
