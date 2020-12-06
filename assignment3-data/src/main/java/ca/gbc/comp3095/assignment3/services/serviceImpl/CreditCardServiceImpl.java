@@ -3,10 +3,12 @@ package ca.gbc.comp3095.assignment3.services.serviceImpl;
 import ca.gbc.comp3095.assignment3.domain.CreditCard;
 import ca.gbc.comp3095.assignment3.repositories.CreditCardRepository;
 import ca.gbc.comp3095.assignment3.services.CreditCardService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class CreditCardServiceImpl implements CreditCardService {
 
     private final CreditCardRepository creditCardRepository;

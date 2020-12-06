@@ -2,7 +2,10 @@ package ca.gbc.comp3095.assignment3.domain;
 
 
 import javax.persistence.*;
+import java.math.BigInteger;
+import java.time.LocalDate;
 import java.util.Date;
+import java.math.BigInteger;
 
 
 @Entity
@@ -21,16 +24,28 @@ public class CreditCard {
     private String type;
 
     @Column(name="expiration_date")
-    private Date expirationDate;
+    private LocalDate expirationDate;
 
     @Column(name="card_holder_name")
     private String cardHolderName;
 
     @Column(name="card_number")
-    private int cardNumber;
+    private String cardNumber;
 
     @Column(name="default")
     private boolean defaultCard;
+
+    public CreditCard() {
+    }
+
+    public CreditCard(User user, String type, LocalDate expirationDate, String cardHolderName, String cardNumber, boolean defaultCard) {
+        this.user = user;
+        this.type = type;
+        this.expirationDate = expirationDate;
+        this.cardHolderName = cardHolderName;
+        this.cardNumber = cardNumber;
+        this.defaultCard = defaultCard;
+    }
 
     public User getUser() {
         return user;
@@ -48,11 +63,11 @@ public class CreditCard {
         this.type = type;
     }
 
-    public Date getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
 
@@ -64,11 +79,11 @@ public class CreditCard {
         this.cardHolderName = cardHolderName;
     }
 
-    public int getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 

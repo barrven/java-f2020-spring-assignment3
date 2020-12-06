@@ -12,14 +12,19 @@ Project: COMP3095 Channel5NewsTeam
 
 package ca.gbc.comp3095.assignment3.bootstrap;
 
+import ca.gbc.comp3095.assignment3.domain.CreditCard;
 import ca.gbc.comp3095.assignment3.domain.Role;
 import ca.gbc.comp3095.assignment3.domain.User;
 import ca.gbc.comp3095.assignment3.repositories.RoleRepository;
 import ca.gbc.comp3095.assignment3.repositories.UserRepository;
+import ca.gbc.comp3095.assignment3.services.CreditCardService;
 import ca.gbc.comp3095.assignment3.services.RoleService;
 import ca.gbc.comp3095.assignment3.services.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.math.BigInteger;
+import java.time.LocalDate;
 
 @Component
 //this is going to be a managed bean by the spring container. spring container will manage the instantiation of this class
@@ -27,13 +32,15 @@ public class BootstrapData implements CommandLineRunner {
 
     private final UserService userService;
     private final RoleService roleService;
+    private final CreditCardService creditCardService;
 
 
     //instantiate a new bootstrap data object with these specific data members assigned
     //constructor injection
-    public BootstrapData(UserService userService, RoleService roleService) {
+    public BootstrapData(UserService userService, RoleService roleService, CreditCardService creditCardService) {
         this.userService = userService;
         this.roleService = roleService;
+        this.creditCardService = creditCardService;
     }
 
     //default implementation of run method that is required by the interface
@@ -50,6 +57,10 @@ public class BootstrapData implements CommandLineRunner {
         User barry = new User("barry","trombone", "client@isp.net", "client@isp.net", "P@ssword1");
         userService.save(chuckNorris);
         userService.save(barry);
+
+        CreditCard card1 = new CreditCard(barry, "Visa", LocalDate.now(), "Barry Trombone", "1111222233334444", true);
+        card1.setUser(barry);
+        creditCardService.save(card1);
 
 
         admin.getUsers().add(chuckNorris);
