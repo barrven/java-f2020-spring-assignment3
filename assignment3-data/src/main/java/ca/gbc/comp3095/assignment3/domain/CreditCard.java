@@ -1,12 +1,7 @@
 package ca.gbc.comp3095.assignment3.domain;
 
-
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.time.LocalDate;
-import java.util.Date;
-import java.math.BigInteger;
-
 
 @Entity
 @Table(name="credit_cards")

@@ -14,11 +14,13 @@ package ca.gbc.comp3095.assignment3.bootstrap;
 
 import ca.gbc.comp3095.assignment3.domain.CreditCard;
 import ca.gbc.comp3095.assignment3.domain.Role;
+import ca.gbc.comp3095.assignment3.domain.SupportMessage;
 import ca.gbc.comp3095.assignment3.domain.User;
 import ca.gbc.comp3095.assignment3.repositories.RoleRepository;
 import ca.gbc.comp3095.assignment3.repositories.UserRepository;
 import ca.gbc.comp3095.assignment3.services.CreditCardService;
 import ca.gbc.comp3095.assignment3.services.RoleService;
+import ca.gbc.comp3095.assignment3.services.SupportMessageService;
 import ca.gbc.comp3095.assignment3.services.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -33,14 +35,16 @@ public class BootstrapData implements CommandLineRunner {
     private final UserService userService;
     private final RoleService roleService;
     private final CreditCardService creditCardService;
+    private final SupportMessageService supportMessageService;
 
 
     //instantiate a new bootstrap data object with these specific data members assigned
     //constructor injection
-    public BootstrapData(UserService userService, RoleService roleService, CreditCardService creditCardService) {
+    public BootstrapData(UserService userService, RoleService roleService, CreditCardService creditCardService, SupportMessageService supportMessageService) {
         this.userService = userService;
         this.roleService = roleService;
         this.creditCardService = creditCardService;
+        this.supportMessageService = supportMessageService;
     }
 
     //default implementation of run method that is required by the interface
@@ -62,6 +66,11 @@ public class BootstrapData implements CommandLineRunner {
         card1.setUser(barry);
         creditCardService.save(card1);
 
+        SupportMessage sMessage1 = new SupportMessage();
+        sMessage1.setUser(barry);
+        sMessage1.setSubject("Springboot being fun");
+        sMessage1.setMessage("Hello, I don't need support I just want to say how much fun I think SpringBoot is!!");
+        supportMessageService.save(sMessage1);
 
         admin.getUsers().add(chuckNorris);
         client.getUsers().add(barry);

@@ -50,7 +50,7 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Set<CreditCard> creditCards = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Set<SupportMessage> supportMessages = new HashSet<>();
 
     public User() {

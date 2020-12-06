@@ -3,11 +3,12 @@ package ca.gbc.comp3095.assignment3.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name="support_messages")
 public class SupportMessage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -29,11 +30,11 @@ public class SupportMessage {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public User getUser() {
