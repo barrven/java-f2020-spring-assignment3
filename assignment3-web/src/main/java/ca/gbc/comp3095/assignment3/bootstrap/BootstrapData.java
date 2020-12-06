@@ -71,6 +71,7 @@ public class BootstrapData implements CommandLineRunner {
         sMessage1.setUser(barry);
         sMessage1.setSubject("Springboot being fun");
         sMessage1.setMessage("Hello, I don't need support I just want to say how much fun I think SpringBoot is!!");
+        sMessage1.setDate(LocalDate.now());
         supportMessageService.save(sMessage1);
 
         Address address1 = new Address();

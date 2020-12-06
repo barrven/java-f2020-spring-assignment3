@@ -1,6 +1,7 @@
 package ca.gbc.comp3095.assignment3.domain;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name="support_messages")
@@ -19,6 +20,9 @@ public class SupportMessage {
 
     @Column(name="message")
     private String message;
+
+    @Column(name="date")
+    private LocalDate date;
 
     public SupportMessage() {
     }
@@ -59,5 +63,13 @@ public class SupportMessage {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }

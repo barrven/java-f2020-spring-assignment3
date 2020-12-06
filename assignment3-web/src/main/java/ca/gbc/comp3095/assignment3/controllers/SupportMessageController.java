@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 
 @Controller
 public class SupportMessageController {
@@ -52,6 +53,7 @@ public class SupportMessageController {
         if(bindingResult.hasErrors()) {
             return "client/dashboard";
         } else {
+            supportMessage.setDate(LocalDate.now());
             tempUser = userService.findByUsername("client@isp.net");
             tempUser.getSupportMessages().add(supportMessage);
             supportMessage.setUser(tempUser);
