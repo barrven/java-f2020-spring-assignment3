@@ -53,6 +53,9 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Set<SupportMessage> supportMessages = new HashSet<>();
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<Address> addresses = new HashSet<>();
+
     public User() {
     }
 
@@ -139,6 +142,14 @@ public class User {
 
     public void setSupportMessages(Set<SupportMessage> supportMessages) {
         this.supportMessages = supportMessages;
+    }
+
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<Address> addresses) {
+        this.addresses = addresses;
     }
 
     @Override
