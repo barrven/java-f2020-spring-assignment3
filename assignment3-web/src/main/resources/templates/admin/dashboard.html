@@ -20,23 +20,57 @@
 <div class="container m-3">
     <h1 class="text-center">Dashboard</h1>
     <div class="row">
-        <div class="col border border-primary">
-            <h2>Recent Activity</h2>
+        <div class="col border border-primary p-3">
+            <h2 class="text-center">Recent Activity</h2>
 
+            <h4 class="mt-3">Last Login Activity</h4>
+            <hr>
+            <div class="text-center">Monday, Sept 3, 2018</div>
 
-        </div>
-        <div class="col">
-            <div class="border border-primary">
-                <h2>Current Profile</h2>
-                <hr>
-                <div><strong>First Name: </strong><span th:text="${user.getFirstName()}"></span></div>
-                <div><strong>Last Name: </strong><span th:text="${user.getLastName()}"></span></div>
-                <div><strong>Email: </strong><span th:text="${user.getEmail()}"></span></div>
+            <h4 class="mt-3">Number of Registered Users</h4>
+            <hr>
+            <div class="text-center" th:text="${users.size()}">4</div>
+
+            <h4 class="mt-3">Inbox</h4>
+            <hr>
+            <div class="row">
+                <strong class="col">Unread: </strong>
+                <div class="col" th:text="${messages.size()}">0</div>
+                <strong class="col">Read: </strong>
+                <div class="col">0</div>
             </div>
 
-            <div class="border border-primary">
-                <h2>Registered Users List</h2>
+        </div>
 
+        <!--Right side -->
+        <div class="col">
+            <div class="border border-primary p-3">
+                <h2 class="text-center">Current Profile</h2>
+                <hr>
+                <div class="row">
+                    <strong class="col">First Name: </strong>
+                    <span class="col" th:text="${user.getFirstName()}">John</span>
+                </div>
+
+                <div class="row">
+                    <strong class="col">Last Name: </strong>
+                    <span class="col" th:text="${user.getLastName()}">Doe</span>
+
+                </div>
+
+                <div class="row">
+                    <strong class="col">Email: </strong>
+                    <span class="col" th:text="${user.getEmail()}">john@doe.com</span>
+                </div>
+            </div>
+
+            <div class="border border-primary p-3 mt-3">
+                <h2 class="text-center">Registered Users List</h2>
+                <hr>
+                <div class="row" th:each="user:${users}">
+                    <span class="col" th:text="${user.getFirstName()}">John Doe</span>
+                    <span class="col" th:text="${user.getEmail()}">john@isp.ca</span>
+                </div>
             </div>
 
         </div>
