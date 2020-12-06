@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/master-style.css" th:href="@{master-style.css}">
+</head>
+<body>
+
+
+<nav th:replace="fragments/nav.html :: nav" class="navbar navbar-expand-lg navbar-light bg-light"></nav>
+
+<div class="container"> <div class=" text-center mt-5 ">
+    <h1>Support</h1>
+</div>
+    <div class="row ">
+        <div class="col-lg-7 mx-auto">
+            <div class="card mt-2 mx-auto p-4 bg-light">
+                <div class="card-body bg-light">
+                    <div class="container">
+                        <form id="contact-form" role="form">
+                            <div class="controls">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group"> <label for="form_ticket">Ticket #</label> <input id="form_ticket" type="text" name="ticket" class="form-control" placeholder="Ticket #" required="required" data-error="Ticket number is required."> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_name">Name</label> <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your name" required="required" data-error="Name is required."> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label>Email</label> <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email" required="required" data-error="Email is required."> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group"> <label>Subject</label> <input id="form_subject" type="text" name="subject" class="form-control" placeholder="Please enter the subject of your message" required="required" data-error="Valid subject is required."> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group"> <label for="form_message">Message *</label> <textarea id="form_message" name="message" class="form-control" placeholder="Write your message here." rows="4" required="required" data-error="Please, leave us a message."></textarea> </div>
+                                    </div>
+                                    <div class="col-md-12"> <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Send Message"> </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="fragments/footer.html :: footer" class="footer text-center"></footer>
+
+</body>
+</html>
