@@ -33,37 +33,4 @@ public class UserController {
 //        this.userRepository = userRepository;
 //        this.roleRepository = roleRepository;
 //    }
-
-    private final UserService userService;
-    private final RoleService roleService;
-
-    public UserController(UserService userService, RoleService roleService) {
-        this.roleService = roleService;
-        this.userService = userService;
-    }
-
-    public Role findRole(Long id) {
-        return this.roleService.findById(id);
-    }
-
-    @GetMapping("/registration")
-    public String initCreateForm(ModelMap model) {
-        User user = new User();
-        model.put("user", user);
-        return "client/registration";
-    }
-
-    @PostMapping("/registration")
-    public String processCreationForm(Role role, @ModelAttribute @Valid User user, BindingResult bindingResult, ModelMap model) {
-        if(bindingResult.hasErrors()) {
-            return "client/registration";
-        } else {
-            role = findRole((long) 2);
-            role.addUser(user);
-            user.addRole(role);
-            this.userService.save(user);
-            this.roleService.save(role);
-            return "login";
-        }
-    }
 }
