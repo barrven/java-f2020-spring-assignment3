@@ -50,6 +50,9 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Set<CreditCard> creditCards = new HashSet<>();
 
+    @OneToMany
+    private Set<SupportMessage> supportMessages = new HashSet<>();
+
     public User() {
     }
 
@@ -128,6 +131,14 @@ public class User {
 
     public void setCreditCards(Set<CreditCard> creditCards) {
         this.creditCards = creditCards;
+    }
+
+    public Set<SupportMessage> getSupportMessages() {
+        return supportMessages;
+    }
+
+    public void setSupportMessages(Set<SupportMessage> supportMessages) {
+        this.supportMessages = supportMessages;
     }
 
     @Override
