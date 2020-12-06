@@ -47,6 +47,9 @@ public class User {
     @ManyToMany(mappedBy = "users")
     private Set<Role> roles = new HashSet<>();
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<CreditCard> creditCards = new HashSet<>();
+
     public User() {
     }
 
@@ -117,6 +120,14 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Set<CreditCard> getCreditCards() {
+        return creditCards;
+    }
+
+    public void setCreditCards(Set<CreditCard> creditCards) {
+        this.creditCards = creditCards;
     }
 
     @Override
