@@ -14,8 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class SupportController {
+//    @RequestMapping("/admin-support")
+//    public String loadAdminSupport(){
+//        return "admin/support";
+//    }
+
     @RequestMapping("/support")
-    public String responseUnderCTabs(){
+    public String loadUserSupport(){
+        // TODO Check if user is admin, if so, return "admin/support"
         return "client/support";
     }
 }
