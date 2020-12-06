@@ -80,8 +80,6 @@ public class BootstrapData implements CommandLineRunner {
         address1.setCountry("Canada");
         address1.setDefaultBilling(true);
         address1.setDefaultShipping(false);
-        address1.setBilling(true);
-        address1.setShipping(false);
         address1.setUser(barry);
         addressService.save(address1);
 
@@ -92,8 +90,6 @@ public class BootstrapData implements CommandLineRunner {
         address2.setCountry("Canada");
         address2.setDefaultBilling(false);
         address2.setDefaultShipping(true);
-        address2.setBilling(false);
-        address2.setShipping(true);
         address2.setUser(barry);
         addressService.save(address2);
 
