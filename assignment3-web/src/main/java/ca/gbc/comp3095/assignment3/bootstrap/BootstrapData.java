@@ -74,6 +74,9 @@ public class BootstrapData implements CommandLineRunner {
         supportMessageService.save(sMessage1);
 
         Address address1 = new Address();
+        address1.setFirstName("John");
+        address1.setLastName("Doe");
+        address1.setEmail("johndoe@gmail.com");
         address1.setAddress("123 Real Blvd.");
         address1.setCity("Toronto");
         address1.setProvince("Ontario");
@@ -84,6 +87,9 @@ public class BootstrapData implements CommandLineRunner {
         addressService.save(address1);
 
         Address address2 = new Address();
+        address2.setFirstName("John");
+        address2.setLastName("Doe");
+        address2.setEmail("johndoe@gmail.com");
         address2.setAddress("123 Fake Blvd.");
         address2.setCity("Peterborough");
         address2.setProvince("Ontario");

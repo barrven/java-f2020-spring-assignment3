@@ -80,29 +80,11 @@
         <div class="scrollDiv card-body mt-2 p-4 bg-light border">
             <p><b>List of Existing Profiles</b></p>
             <hr/>
-            <!-- TODO: Loop through cards and display it using the div below as template-->
-            <div>
-                <p>Email: </p>
-                <p>Address: </p>
-                <p>City: </p>
-                <p>Country: </p>
-                <p>Default Billing: </p>
-                <hr/>
-            </div>
-            <div>
-                <p>Email: </p>
-                <p>Address: </p>
-                <p>City: </p>
-                <p>Country: </p>
-                <p>Default Billing: </p>
-                <hr/>
-            </div>
-            <div>
-                <p>Email: </p>
-                <p>Address: </p>
-                <p>City: </p>
-                <p>Country: </p>
-                <p>Default Billing: </p>
+            <div th:each="address : ${addresses}">
+                <b>Email:</b><p th:text="${address.email}"></p>
+                <b>Address:</b><p th:text="${address.address}"></p>
+                <b>City:</b><p th:text="${address.city}"></p>
+                <b>Country:</b> <p th:text="${address.country}"></p>
                 <hr/>
             </div>
         </div>
