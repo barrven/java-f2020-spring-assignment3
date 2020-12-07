@@ -23,8 +23,34 @@
 <nav th:replace="fragments/admin-nav.html :: nav" class="navbar navbar-expand-lg navbar-light bg-light"></nav>
 
 <div class="container">
-    <h2 class=" text-center mt-5 ">Manage Admin Users</h2>
+    <h2 class=" text-center m-5 ">Manage Admin Users</h2>
+    <div>
+        <a class="btn btn-primary">Add User</a>
+    </div>
 
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user:${users}">
+            <td th:text="${user.getUsername()}">Mark123</td>
+            <td th:text="${user.getFirstName()}">Mark</td>
+            <td th:text="${user.getLastName()}">Otto</td>
+            <td th:text="${user.getEmail()}">@mdo</td>
+            <td>
+                <button class="btn btn-secondary">Update</button>
+                <button class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
 
 </div>
