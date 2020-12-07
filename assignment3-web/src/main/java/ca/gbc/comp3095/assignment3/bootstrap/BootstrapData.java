@@ -74,6 +74,7 @@ public class BootstrapData implements CommandLineRunner {
         sMessage1.setDate(LocalDate.now());
         supportMessageService.save(sMessage1);
 
+
         Address address1 = new Address();
         address1.setAddress("123 Real Blvd.");
         address1.setCity("Toronto");
@@ -93,6 +94,17 @@ public class BootstrapData implements CommandLineRunner {
         address2.setDefaultShipping(true);
         address2.setUser(barry);
         addressService.save(address2);
+
+        //for admin user
+        Address address3 = new Address();
+        address3.setAddress("123 Fake St.");
+        address3.setCity("Burlington");
+        address3.setProvince("Ontario");
+        address3.setCountry("Canada");
+        address3.setDefaultBilling(true);
+        address3.setDefaultShipping(false);
+        address3.setUser(chuckNorris);
+        addressService.save(address3);
 
         admin.getUsers().add(chuckNorris);
         client.getUsers().add(barry);
