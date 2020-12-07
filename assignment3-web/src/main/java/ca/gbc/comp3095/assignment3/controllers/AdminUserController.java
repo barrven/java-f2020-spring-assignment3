@@ -83,6 +83,11 @@ public class AdminUserController {
 
     @RequestMapping("/admin/users")
     public String getAdminUsers(Model model){
+        return "admin/admin-users-crud";
+    }
+
+    @RequestMapping("/admin/inbox")
+    public String getAdminUsersInbox(Model model){
         return "admin/construction";
     }
 
