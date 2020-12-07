@@ -40,13 +40,13 @@ public class DashboardController {
     }
 
     @RequestMapping("/client")
-    public String loadDashboard() {
+    public String loadClientDashboard() {
         return "client/dashboard";
     }
 
 
     @GetMapping("/admin")
-    public String getDashboard(Model model){
+    public String loadAdminDashboard(Model model){
         User adminUser = userService.findByUsername("admin@isp.net");
         Set<SupportMessage> messages = supportMessageService.findAll();
         Set<User> users = userService.findAll();
