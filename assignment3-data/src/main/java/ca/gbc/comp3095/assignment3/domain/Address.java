@@ -21,7 +21,7 @@ public class Address {
     private String email;
 
     @Column(name="addres")
-    private String address;
+    private String place;
 
     @Column(name="city")
     private String city;
@@ -45,11 +45,11 @@ public class Address {
     public Address() {
     }
 
-    public Address(String firstName, String lastName, String email,String address, String city, String province, String country) {
+    public Address(String firstName, String lastName, String email, String place, String city, String province, String country) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.address = address;
+        this.place = place;
         this.city = city;
         this.province = province;
         this.country = country;
@@ -75,12 +75,12 @@ public class Address {
 
     public void setEmail(String email) { this.email = email; }
 
-    public String getAddress() {
-        return address;
+    public String getPlace() {
+        return place;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPlace(String address) {
+        this.place = address;
     }
 
     public String getCity() {

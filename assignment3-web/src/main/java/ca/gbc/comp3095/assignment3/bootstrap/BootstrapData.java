@@ -13,13 +13,10 @@ Project: COMP3095 Channel5NewsTeam
 package ca.gbc.comp3095.assignment3.bootstrap;
 
 import ca.gbc.comp3095.assignment3.domain.*;
-import ca.gbc.comp3095.assignment3.repositories.RoleRepository;
-import ca.gbc.comp3095.assignment3.repositories.UserRepository;
 import ca.gbc.comp3095.assignment3.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -82,7 +79,7 @@ public class BootstrapData implements CommandLineRunner {
         address1.setFirstName("John");
         address1.setLastName("Doe");
         address1.setEmail("johndoe@gmail.com");
-        address1.setAddress("123 Real Blvd.");
+        address1.setPlace("123 Real Blvd.");
         address1.setCity("Toronto");
         address1.setProvince("Ontario");
         address1.setCountry("Canada");
@@ -95,7 +92,7 @@ public class BootstrapData implements CommandLineRunner {
         address2.setFirstName("John");
         address2.setLastName("Doe");
         address2.setEmail("johndoe@gmail.com");
-        address2.setAddress("123 Fake Blvd.");
+        address2.setPlace("123 Fake Blvd.");
         address2.setCity("Peterborough");
         address2.setProvince("Ontario");
         address2.setCountry("Canada");
@@ -106,7 +103,7 @@ public class BootstrapData implements CommandLineRunner {
 
         //for admin user
         Address address3 = new Address();
-        address3.setAddress("123 Fake St.");
+        address3.setPlace("123 Fake St.");
         address3.setCity("Burlington");
         address3.setProvince("Ontario");
         address3.setCountry("Canada");

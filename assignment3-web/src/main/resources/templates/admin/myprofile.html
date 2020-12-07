@@ -56,7 +56,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="form_address">Address</label>
-                                            <input id="form_address" type="text" name="address" class="form-control" th:value="${address.getAddress()}" required="required" data-error="Address is required."> </div>
+                                            <input id="form_address" type="text" name="address" class="form-control" th:value="${address.getPlace()}" required="required" data-error="Address is required."> </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -97,7 +97,7 @@
 
             <div class="row">
                 <strong class="col">Address</strong>
-                <div class="col" th:text="${address.getAddress()}">123 Fake St</div>
+                <div class="col" th:text="${address.getPlace()}">123 Fake St</div>
             </div>
             <div class="row">
                 <strong class="col">City</strong>
