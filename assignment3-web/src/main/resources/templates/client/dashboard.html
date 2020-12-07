@@ -3,32 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Dashboard</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-    <!-- jQuery and JS bundle w/ Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-            crossorigin="anonymous"></script>
-
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../static/master-style.css" th:href="@{master-style.css}">
+
 </head>
 <body>
 
+<!-- Navigation -->
+<!--<nav th:replace="nav.html :: nav">-->
+<!--</nav>-->
 <nav th:replace="fragments/nav.html :: nav" class="navbar navbar-expand-lg navbar-light bg-light"></nav>
 
 <!-- Content -->
-<div class="container mt-5 mb-5">
+<div class="container m-3">
+    <h1 class="text-center">Dashboard</h1>
     <div class="row">
-        <div class="col-lg" style="background-color: orange">Future Enhancement</div>
-        <div class="col-lg">
-            <div class="row mt-lg " style="background-color: palevioletred">Future Enhancement</div>
-            <div class="row mt-lg" style="background-color: palegreen">Future Enhancement</div>
+        <div class="col border border-primary p-3">
+            <h3 class="text-center">Recent Activity</h3>
+
+            <h4 class="mt-3">Last Login Activity</h4>
+            <hr>
+            <div class="text-center">Monday, Sept 3, 2018</div>
+
+            <h4 class="mt-3">Last User Profile Update</h4>
+            <hr>
+            <div class="text-center">Friday, Oct 12, 2018</div>
+
+            <h4 class="mt-3">Inbox</h4>
+            <hr>
+            <div class="row">
+                <strong class="col">Unread: </strong>
+                <div class="col" th:text="${messages.size()}">0</div>
+                <strong class="col">Read: </strong>
+                <div class="col">0</div>
+            </div>
+
+        </div>
+
+        <!--Right side -->
+        <div class="col">
+            <div class="border border-primary p-3">
+                <strong class="text-center">Current Profile</strong>
+                <hr>
+                <div class="row">
+                    <strong class="col">First Name: </strong>
+                    <span class="col" th:text="${user.getFirstName()}">John</span>
+                </div>
+
+                <div class="row">
+                    <strong class="col">Last Name: </strong>
+                    <span class="col" th:text="${user.getLastName()}">Doe</span>
+
+                </div>
+
+                <div class="row">
+                    <strong class="col">Email: </strong>
+                    <span class="col" th:text="${user.getEmail()}">john@doe.com</span>
+                </div>
+            </div>
+
+            <div class="border border-primary p-3 mt-3">
+                <strong>Preferred Billing Address</strong>
+                <hr>
+                <div class="row mb-5">
+                    <span class="col">Address</span>
+                    <span class="col" th:text="${address1.getPlace()}">john@isp.ca</span>
+                </div>
+                <div class="row mb-5">
+                    <span class="col">City</span>
+                    <span class="col" th:text="${address1.getCity()}">john@isp.ca</span>
+                </div>
+                <div class="row mb-5">
+                    <span class="col">Country</span>
+                    <span class="col" th:text="${address1.getCountry()}">john@isp.ca</span>
+                </div>
+
+                <strong class="mt-5">Preferred Shipping Address</strong>
+                <hr>
+                <div class="row mb-5">
+                    <span class="col">Address</span>
+                    <span class="col" th:text="${address2.getPlace()}">john@isp.ca</span>
+                </div>
+                <div class="row mb-5">
+                    <span class="col">City</span>
+                    <span class="col" th:text="${address2.getCity()}">john@isp.ca</span>
+                </div>
+                <div class="row mb-5">
+                    <span class="col">Country</span>
+                    <span class="col" th:text="${address2.getCountry()}">john@isp.ca</span>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
