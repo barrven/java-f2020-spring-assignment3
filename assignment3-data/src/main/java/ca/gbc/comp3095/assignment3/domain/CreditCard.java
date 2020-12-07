@@ -2,6 +2,7 @@ package ca.gbc.comp3095.assignment3.domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name="credit_cards")
@@ -19,7 +20,7 @@ public class CreditCard {
     private String type;
 
     @Column(name="expiration_date")
-    private LocalDate expirationDate;
+    private String expirationDate;
 
     @Column(name="card_holder_name")
     private String cardHolderName;
@@ -33,7 +34,7 @@ public class CreditCard {
     public CreditCard() {
     }
 
-    public CreditCard(User user, String type, LocalDate expirationDate, String cardHolderName, String cardNumber, boolean defaultCard) {
+    public CreditCard(User user, String type, String expirationDate, String cardHolderName, String cardNumber, boolean defaultCard) {
         this.user = user;
         this.type = type;
         this.expirationDate = expirationDate;
@@ -58,11 +59,11 @@ public class CreditCard {
         this.type = type;
     }
 
-    public LocalDate getExpirationDate() {
+    public String getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(LocalDate expirationDate) {
+    public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
     }
 

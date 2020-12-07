@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Component
 //this is going to be a managed bean by the spring container. spring container will manage the instantiation of this class
@@ -53,6 +54,8 @@ public class BootstrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        Date date = new Date();
+
         Role admin = new Role("Admin");
         Role client = new Role("Client");
         roleService.save(admin);
@@ -63,7 +66,7 @@ public class BootstrapData implements CommandLineRunner {
         userService.save(chuckNorris);
         userService.save(barry);
 
-        CreditCard card1 = new CreditCard(barry, "Visa", LocalDate.now(), "Barry Trombone", "1111222233334444", true);
+        CreditCard card1 = new CreditCard(barry, "Visa", "02/22", "Barry Trombone", "1111222233334444", true);
         card1.setUser(barry);
         creditCardService.save(card1);
 
