@@ -34,39 +34,39 @@
                 <div class="card-body bg-light">
                     <div class="container">
                         <h4>Add /Edit Profile</h4>
-                        <form id="contact-form" role="form">
+                        <form id="contact-form" role="form" method="post" th:action="@{admin}" th:object="${userWithAddress}">
                             <div class="controls">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_firstname">First Name</label>
-                                            <input id="form_firstname" type="text" name="firstname" class="form-control" th:value="${user.getFirstName()}" required="required" data-error="First name is required."> </div>
+                                            <input id="form_firstname" type="text" th:field="*{firstName}" class="form-control" th:value="${userWithAddress.getFirstName()}" required="required" data-error="First name is required."> </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_lastname">Last Name</label>
-                                            <input id="form_lastname" type="text" name="lastname" class="form-control" th:value="${user.getLastName()}" required="required" data-error="Last name is required."> </div>
+                                            <input id="form_lastname" type="text" th:field="*{lastName}" class="form-control" th:value="${userWithAddress.getLastName()}" required="required" data-error="Last name is required."> </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="form_email">Email</label>
-                                            <input id="form_email" type="email" name="email" class="form-control" th:value="${user.getEmail()}" required="required" data-error="Email is required."> </div>
+                                            <input id="form_email" type="email" th:field="*{email}" class="form-control" th:value="${userWithAddress.getEmail()}" required="required" data-error="Email is required."> </div>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="form_address">Address</label>
-                                            <input id="form_address" type="text" name="address" class="form-control" th:value="${address.getPlace()}" required="required" data-error="Address is required."> </div>
+                                            <input id="form_address" type="text" th:field="*{address}" class="form-control" th:value="${userWithAddress.getAddress()}" required="required" data-error="Address is required."> </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_city">City</label>
-                                            <input id="form_city" type="text" name="city" class="form-control" th:value="${address.getCity()}" required="required" data-error="City is required."> </div>
+                                            <input id="form_city" type="text" th:field="*{city}" class="form-control" th:value="${userWithAddress.getCity()}" required="required" data-error="City is required."> </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_country">Country</label>
-                                            <input id="form_country" type="text" name="country" class="form-control" th:value="${address.getCountry()}" required="required" data-error="Country is required."> </div>
+                                            <input id="form_country" type="text" th:field="*{country}" class="form-control" th:value="${userWithAddress.getCountry()}" required="required" data-error="Country is required."> </div>
                                     </div>
 
                                 </div>
@@ -84,28 +84,28 @@
             <h4>Current Profile</h4>
             <div class="row">
                 <strong class="col">First Name</strong>
-                <div class="col" th:text="${user.getFirstName()}">Jane</div>
+                <div class="col" th:text="${userWithAddress.getFirstName()}">Jane</div>
             </div>
             <div class="row">
                 <strong class="col">Last Name</strong>
-                <div class="col" th:text="${user.getLastName()}">Doe</div>
+                <div class="col" th:text="${userWithAddress.getLastName()}">Doe</div>
             </div>
             <div class="row">
                 <strong class="col">Email</strong>
-                <div class="col" th:text="${user.getEmail()}">Jane@doe.ca</div>
+                <div class="col" th:text="${userWithAddress.getEmail()}">Jane@doe.ca</div>
             </div>
 
             <div class="row">
                 <strong class="col">Address</strong>
-                <div class="col" th:text="${address.getPlace()}">123 Fake St</div>
+                <div class="col" th:text="${userWithAddress.getAddress()}">123 Fake St</div>
             </div>
             <div class="row">
                 <strong class="col">City</strong>
-                <div class="col" th:text="${address.getCity()}">Toronto</div>
+                <div class="col" th:text="${userWithAddress.getCity()}">Toronto</div>
             </div>
             <div class="row">
                 <strong class="col">Country</strong>
-                <div class="col" th:text="${address.getCountry()}">Canada</div>
+                <div class="col" th:text="${userWithAddress.getCountry()}">Canada</div>
             </div>
             <hr>
         </div>
