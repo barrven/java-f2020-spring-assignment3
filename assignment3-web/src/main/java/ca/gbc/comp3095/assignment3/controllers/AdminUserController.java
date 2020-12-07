@@ -8,18 +8,10 @@ import ca.gbc.comp3095.assignment3.services.RoleService;
 import ca.gbc.comp3095.assignment3.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class AdminUserController {
@@ -83,6 +75,24 @@ public class AdminUserController {
 
     @RequestMapping("/admin/users")
     public String getAdminUsers(Model model){
+        List<User> temp = new ArrayList<>(userService.findAll());
+        Set<User> users = new HashSet<>();
+        for (User user : temp) {
+            Set<Role> roles = user.getRoles();
+            for (Role role : roles) {
+                if (role.getId() == 1L) {
+                    users.add(user);
+                }
+            }
+
+        }
+
+        model.addAttribute("users", users);
+
+
+
+
+
         return "admin/admin-users-crud";
     }
 
