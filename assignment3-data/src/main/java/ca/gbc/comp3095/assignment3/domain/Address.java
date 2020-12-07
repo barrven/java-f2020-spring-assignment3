@@ -20,7 +20,7 @@ public class Address {
     @Column(name="email")
     private String email;
 
-    @Column(name="addres")
+    @Column(name="address")
     private String place;
 
     @Column(name="city")

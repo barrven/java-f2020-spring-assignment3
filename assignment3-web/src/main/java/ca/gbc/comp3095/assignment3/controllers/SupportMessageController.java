@@ -15,6 +15,7 @@ import ca.gbc.comp3095.assignment3.domain.User;
 import ca.gbc.comp3095.assignment3.services.SupportMessageService;
 import ca.gbc.comp3095.assignment3.services.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,6 +62,20 @@ public class SupportMessageController {
             userService.save(tempUser);
             return "client/dashboard";
         }
+    }
+
+    @PostMapping("/admin/read")
+    public String readAdminMessage(ModelMap model, @ModelAttribute SupportMessage supportMessage) {
+        SupportMessage message = supportMessageService.findById(supportMessage.getId());
+        model.addAttribute("message", message);
+        return "admin/readmessage";
+    }
+
+    @PostMapping("/client/read")
+    public String readClientMessage(ModelMap model, @ModelAttribute SupportMessage supportMessage) {
+        SupportMessage message = supportMessageService.findById(supportMessage.getId());
+        model.addAttribute("message", message);
+        return "admin/readmessage";
     }
 
     @RequestMapping("/supportmessage")
