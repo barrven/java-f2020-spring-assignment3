@@ -76,11 +76,6 @@ public class AdminUserController {
         return "admin/myprofile";
     }
 
-    @RequestMapping("/admin/users-listing")
-    public String getAdminUsersListing(Model model){
-        return "admin/construction";
-    }
-
     @RequestMapping("/admin/users")
     public String getAdminUsers(Model model){
         return "admin/admin-users-crud";
