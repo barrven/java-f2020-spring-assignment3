@@ -11,6 +11,15 @@ public class Address {
     @JoinColumn(name="owner_id")
     private Long id;
 
+    @Column(name="first_name")
+    private String firstName;
+
+    @Column(name="last_name")
+    private String lastName;
+
+    @Column(name="email")
+    private String email;
+
     @Column(name="addres")
     private String address;
 
@@ -36,7 +45,10 @@ public class Address {
     public Address() {
     }
 
-    public Address(String address, String city, String province, String country) {
+    public Address(String firstName, String lastName, String email,String address, String city, String province, String country) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
         this.address = address;
         this.city = city;
         this.province = province;
@@ -50,6 +62,18 @@ public class Address {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getFirstName() { return firstName; }
+
+    public void setFirstName(String firstName) { this.firstName = firstName; }
+
+    public String getLastName() { return lastName; }
+
+    public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
 
     public String getAddress() {
         return address;

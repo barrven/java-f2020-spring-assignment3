@@ -14,3 +14,7 @@
     height: 300px;
     overflow: scroll;
 }
+
+.inline {
+    display: inline;
+}
